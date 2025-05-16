@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.js
+import React from 'react';
+import { CssBaseline, Box } from '@mui/material';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+import AppLayout from './components/layout/AppLayout';
+import { useThemeMode } from './contexts/ThemeContext';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { mode, toggleColorMode } = useThemeMode();
+  
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <CssBaseline />
+      <Router>
+        <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+          <AppLayout toggleColorMode={toggleColorMode} mode={mode}>
+            <AppRoutes />
+          </AppLayout>
+        </Box>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
