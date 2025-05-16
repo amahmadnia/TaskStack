@@ -5,13 +5,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 // Lazy loading pages for better performance
 const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const TaskList = React.lazy(() => import('../pages/TaskList'));
-const TaskDetail = React.lazy(() => import('../pages/Task// src/routes/AppRoutes.js
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-
-// Lazy loading pages for better performance
-const Dashboard = React.lazy(() => import('../pages/Dashboard'));
-const TaskList = React.lazy(() => import('../pages/TaskList'));
 const TaskDetail = React.lazy(() => import('../pages/TaskDetail'));
 const NewTask = React.lazy(() => import('../pages/NewTask'));
 const Categories = React.lazy(() => import('../pages/Categories'));
