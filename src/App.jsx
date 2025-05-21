@@ -6,7 +6,6 @@ import {
   Navigate,
 } from "react-router-dom"
 import { ThemeProvider, CssBaseline } from "@mui/material"
-import { createTheme } from "@mui/material/styles"
 
 // Pages
 import Dashboard from "./pages/Dashboard"
@@ -25,6 +24,9 @@ import Layout from "./components/layout/Layout"
 // Components
 import QuickAddTask from "./components/ui/QuickAddTask"
 
+// Import the custom theme creator
+import { createAppTheme } from "./theme"
+
 function App() {
   return (
     <ThemeContextProvider>
@@ -39,18 +41,8 @@ function AppContent() {
   // Get the theme from ThemeContext
   const { theme } = useContext(ThemeContext)
 
-  // Create MUI theme based on our theme context
-  const muiTheme = createTheme({
-    palette: {
-      mode: theme === "dark" ? "dark" : "light",
-      primary: {
-        main: "#3f51b5",
-      },
-      secondary: {
-        main: "#f50057",
-      },
-    },
-  })
+  // Create MUI theme based on our theme context using the custom theme creator
+  const muiTheme = createAppTheme(theme === "dark" ? "dark" : "light")
 
   return (
     <ThemeProvider theme={muiTheme}>
