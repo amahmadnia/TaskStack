@@ -28,8 +28,8 @@ function App() {
 }
 
 function AppContent() {
-  // We'll get the theme from ThemeContext
-  const { theme } = React.useContext(React.createContext({})); // Placeholder, will be replaced by actual ThemeContext
+  // Get the theme from ThemeContext
+  const { theme } = React.useContext(ThemeContext);
   
   // Create MUI theme based on our theme context
   const muiTheme = createTheme({
