@@ -228,6 +228,7 @@ export const TaskContextProvider = ({ children }) => {
 
   return (
     <TaskContext.Provider
+      
       value={{
         tasks,
         categories,

@@ -26,6 +26,10 @@ const Settings = () => {
       </Typography>
 
       <Grid container spacing={3}>
+<Grid item xs={12} md={6}>
+          <ImportExport />
+        </Grid>
+
         <Grid item xs={12} md={6}>
           <Paper sx={{ p: 3, mb: 3 }}>
             <Typography variant="h6" gutterBottom>
@@ -60,7 +64,7 @@ const Settings = () => {
             </Typography>
           </Paper>
 
-          <Paper sx={{ p: 3 }}>
+          {/* <Paper sx={{ p: 3 }}>
             <Typography variant="h6" gutterBottom>
               Application Information
             </Typography>
@@ -88,12 +92,10 @@ const Settings = () => {
                 your browser.
               </Typography>
             </Box>
-          </Paper>
+          </Paper> */}
         </Grid>
 
-        <Grid item xs={12} md={6}>
-          <ImportExport />
-        </Grid>
+        
       </Grid>
     </Box>
   )
