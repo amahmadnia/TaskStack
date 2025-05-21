@@ -89,7 +89,7 @@ const Navbar = ({ toggleDrawer }) => {
           >
             Task Manager
           </Typography>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -97,7 +97,7 @@ const Navbar = ({ toggleDrawer }) => {
               placeholder="Search tasks..."
               inputProps={{ "aria-label": "search" }}
             />
-          </Search>
+          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex" }}>
             <IconButton
@@ -108,7 +108,7 @@ const Navbar = ({ toggleDrawer }) => {
             >
               {theme === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show new notifications"
               color="inherit"
@@ -116,7 +116,7 @@ const Navbar = ({ toggleDrawer }) => {
               <Badge badgeContent={overdueCount} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
           </Box>
         </Toolbar>
       </AppBar>
