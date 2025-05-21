@@ -11,6 +11,7 @@ import {
   ListItemText,
   Divider,
   Toolbar,
+  useTheme,
 } from "@mui/material"
 import DashboardIcon from "@mui/icons-material/Dashboard"
 import ListAltIcon from "@mui/icons-material/ListAlt"
@@ -23,6 +24,7 @@ const drawerWidth = 240
 const Sidebar = ({ open, toggleDrawer }) => {
   const navigate = useNavigate()
   const location = useLocation()
+  const theme = useTheme()
 
   const menuItems = [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
@@ -46,8 +48,12 @@ const Sidebar = ({ open, toggleDrawer }) => {
     >
       {/* <Toolbar /> */}
       <Box padding={3}>
-      <img src="/images.png" style={{width: '100%'}} />
 
+        {theme.palette.mode === "dark" ? (
+          <img src="/images-dark.png" style={{ width: "100%" }} />
+        ) : (
+          <img src="/images.png" style={{ width: "100%" }} />
+        )}
       </Box>
       <Box sx={{ overflow: "auto" }}>
         <List>

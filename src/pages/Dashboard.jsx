@@ -13,7 +13,7 @@ const Dashboard = () => {
   const stats = getTaskStatistics();
   
   return (
-    <Box sx={{ width: '100%', background: 'pink' }}>
+    <Box sx={{ width: '100%',  }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4">
           Dashboard
