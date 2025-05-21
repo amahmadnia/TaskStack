@@ -1,5 +1,5 @@
 // src/components/ui/TaskFilters.js
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react"
 import {
   Paper,
   Box,
@@ -11,59 +11,59 @@ import {
   Chip,
   Typography,
   Divider,
-} from '@mui/material';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import SortIcon from '@mui/icons-material/Sort';
-import ClearIcon from '@mui/icons-material/Clear';
-import { TaskContext } from '../../context/TaskContext';
+} from "@mui/material"
+import FilterListIcon from "@mui/icons-material/FilterList"
+import SortIcon from "@mui/icons-material/Sort"
+import ClearIcon from "@mui/icons-material/Clear"
+import { TaskContext } from "../../context/TaskContext"
 
 const initialFilters = {
-  status: '',
-  priority: '',
-  categoryId: '',
-  dueDate: '',
-};
+  status: "",
+  priority: "",
+  categoryId: "",
+  dueDate: "",
+}
 
 const TaskFilters = ({ onFilterChange, onSortChange }) => {
-  const { categories } = useContext(TaskContext);
-  const [filters, setFilters] = useState(initialFilters);
-  const [sortBy, setSortBy] = useState('dueDate');
-  const [activeFiltersCount, setActiveFiltersCount] = useState(0);
-  
+  const { categories } = useContext(TaskContext)
+  const [filters, setFilters] = useState(initialFilters)
+  const [sortBy, setSortBy] = useState("dueDate")
+  const [activeFiltersCount, setActiveFiltersCount] = useState(0)
+
   const handleFilterChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     const newFilters = {
       ...filters,
       [name]: value,
-    };
-    setFilters(newFilters);
-    
+    }
+    setFilters(newFilters)
+
     // Count active filters
-    const count = Object.values(newFilters).filter(val => val !== '').length;
-    setActiveFiltersCount(count);
-    
+    const count = Object.values(newFilters).filter((val) => val !== "").length
+    setActiveFiltersCount(count)
+
     // Notify parent component
-    onFilterChange(newFilters);
-  };
-  
+    onFilterChange(newFilters)
+  }
+
   const handleSortChange = (e) => {
-    const value = e.target.value;
-    setSortBy(value);
-    onSortChange(value);
-  };
-  
+    const value = e.target.value
+    setSortBy(value)
+    onSortChange(value)
+  }
+
   const handleClearFilters = () => {
-    setFilters(initialFilters);
-    setActiveFiltersCount(0);
-    onFilterChange(initialFilters);
-  };
-  
+    setFilters(initialFilters)
+    setActiveFiltersCount(0)
+    onFilterChange(initialFilters)
+  }
+
   return (
     <Paper sx={{ p: 2, mb: 3 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
         <FilterListIcon sx={{ mr: 1 }} />
         <Typography variant="h6">Filters</Typography>
-        
+
         {activeFiltersCount > 0 && (
           <Chip
             label={`${activeFiltersCount} active`}
@@ -73,10 +73,10 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             deleteIcon={<ClearIcon />}
           />
         )}
-        
+
         <Box sx={{ flexGrow: 1 }} />
-        
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <SortIcon sx={{ mr: 1 }} />
           <FormControl sx={{ minWidth: 150 }} size="small">
             <InputLabel id="sort-label">Sort By</InputLabel>
@@ -95,10 +95,10 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
           </FormControl>
         </Box>
       </Box>
-      
+
       <Divider sx={{ mb: 2 }} />
-      
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+
+      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
         <FormControl sx={{ minWidth: 150 }} size="small">
           <InputLabel id="status-filter-label">Status</InputLabel>
           <Select
@@ -115,7 +115,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             <MenuItem value="completed">Completed</MenuItem>
           </Select>
         </FormControl>
-        
+
         <FormControl sx={{ minWidth: 150 }} size="small">
           <InputLabel id="priority-filter-label">Priority</InputLabel>
           <Select
@@ -132,7 +132,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             <MenuItem value="high">High</MenuItem>
           </Select>
         </FormControl>
-        
+
         <FormControl sx={{ minWidth: 150 }} size="small">
           <InputLabel id="category-filter-label">Category</InputLabel>
           <Select
@@ -144,14 +144,14 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             onChange={handleFilterChange}
           >
             <MenuItem value="">All</MenuItem>
-            {categories.map(category => (
+            {categories.map((category) => (
               <MenuItem key={category.id} value={category.id}>
                 {category.name}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-        
+
         <FormControl sx={{ minWidth: 150 }} size="small">
           <InputLabel id="duedate-filter-label">Due Date</InputLabel>
           <Select
@@ -168,3 +168,22 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             <MenuItem value="overdue">Overdue</MenuItem>
           </Select>
         </FormControl>
+
+        {activeFiltersCount > 0 && (
+          <Button
+            variant="outlined"
+            color="secondary"
+            size="small"
+            onClick={handleClearFilters}
+            startIcon={<ClearIcon />}
+            sx={{ ml: 2 }}
+          >
+            Clear Filters
+          </Button>
+        )}
+      </Box>
+    </Paper>
+  )
+}
+
+export default TaskFilters

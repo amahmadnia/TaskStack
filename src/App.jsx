@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
@@ -11,11 +11,14 @@ import CategoryManagement from './pages/CategoryManagement';
 import Settings from './pages/Settings';
 
 // Context Providers
-import { ThemeContextProvider } from './context/ThemeContext';
+import { ThemeContext, ThemeContextProvider } from './context/ThemeContext';
 import { TaskContextProvider } from './context/TaskContext';
 
 // Layout
 import Layout from './components/layout/Layout';
+
+// Components
+import QuickAddTask from './components/ui/QuickAddTask';
 
 function App() {
   return (
@@ -29,7 +32,7 @@ function App() {
 
 function AppContent() {
   // Get the theme from ThemeContext
-  const { theme } = React.useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   
   // Create MUI theme based on our theme context
   const muiTheme = createTheme({
@@ -58,6 +61,7 @@ function AppContent() {
             <Route path="/settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
+          <QuickAddTask />
         </Layout>
       </Router>
     </ThemeProvider>
