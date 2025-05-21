@@ -17,7 +17,8 @@ const Layout = ({ children }) => {
 
   return (
     <Box sx={{ display: 'flex', 
-      // background: 'blue',
+      background: 'blue',
+      height: '100vh',
      width: '97vw' }}>
       <Navbar toggleDrawer={toggleDrawer} />
       <Sidebar open={drawerOpen} toggleDrawer={toggleDrawer} />
@@ -29,7 +30,7 @@ const Layout = ({ children }) => {
           maxWidth: '100%',
           width: '100%',
           // marginLeft: isSmUp ? `${drawerWidth}px` : 0,
-          // background: 'yellow'
+          background: 'yellow'
         }}
       >
         <Toolbar />
