@@ -44,7 +44,11 @@ const Sidebar = ({ open, toggleDrawer }) => {
         },
       }}
     >
-      <Toolbar />
+      {/* <Toolbar /> */}
+      <Box padding={3}>
+      <img src="/images.png" style={{width: '100%'}} />
+
+      </Box>
       <Box sx={{ overflow: "auto" }}>
         <List>
           {menuItems.map((item) => (
