@@ -143,6 +143,7 @@ const TaskForm = ({ open, onClose, task = null, editMode = false }) => {
             onChange={handleChange}
             multiline
             rows={4}
+            style={{marginBottom: '20px'}}
           />
           
           <LocalizationProvider dateAdapter={AdapterDateFns}>
