@@ -57,7 +57,6 @@ function AppContent() {
       <CssBaseline />
       <Router>
         <Layout>
-          ssssss
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
