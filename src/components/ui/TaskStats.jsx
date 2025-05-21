@@ -33,7 +33,7 @@ const TaskStats = () => {
   })).filter(item => item.value > 0);
   
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} mt={3}>
       {/* Task Count Stats */}
       <Grid item xs={12} md={4}>
         <Paper sx={{ p: 2, height: '100%' }}>
