@@ -13,7 +13,7 @@ const Dashboard = () => {
   const stats = getTaskStatistics();
   
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', background: 'pink' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4">
           Dashboard
@@ -35,7 +35,7 @@ const Dashboard = () => {
               p: 2,
               display: 'flex',
               flexDirection: 'column',
-              height: 140,
+              height: 180,
             }}
           >
             <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -56,7 +56,7 @@ const Dashboard = () => {
               p: 2,
               display: 'flex',
               flexDirection: 'column',
-              height: 140,
+              height: 180,
             }}
           >
             <Typography component="h2" variant="h6" color="success.main" gutterBottom>
@@ -77,7 +77,7 @@ const Dashboard = () => {
               p: 2,
               display: 'flex',
               flexDirection: 'column',
-              height: 140,
+              height: 180,
             }}
           >
             <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -98,7 +98,7 @@ const Dashboard = () => {
               p: 2,
               display: 'flex',
               flexDirection: 'column',
-              height: 140,
+              height: 180,
               borderLeft: '4px solid',
               borderColor: 'error.main',
             }}
