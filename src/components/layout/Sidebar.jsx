@@ -1,4 +1,4 @@
-// src/components/layout/Sidebar.js
+// src/components/layout/Sidebar.jsx
 import React, { useContext } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import {
@@ -37,18 +37,10 @@ const Sidebar = ({ open, toggleDrawer }) => {
       sx={{
         width: drawerWidth,
         flexShrink: 0,
+        display: { xs: "none", sm: "block" },
         [`& .MuiDrawer-paper`]: {
           width: drawerWidth,
           boxSizing: "border-box",
-          transform: {
-            xs: open ? "translateX(0)" : `translateX(-${drawerWidth}px)`,
-            sm: "none",
-          },
-          transition: (theme) =>
-            theme.transitions.create("transform", {
-              easing: theme.transitions.easing.sharp,
-              duration: theme.transitions.duration.enteringScreen,
-            }),
         },
       }}
     >
@@ -94,4 +86,5 @@ const Sidebar = ({ open, toggleDrawer }) => {
     </Drawer>
   )
 }
+
 export default Sidebar

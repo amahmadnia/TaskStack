@@ -1,11 +1,15 @@
-// src/components/layout/Layout.js
+// src/components/layout/Layout.jsx
 import React, { useState } from 'react';
-import { Box, Toolbar } from '@mui/material';
+import { Box, Toolbar, useTheme, useMediaQuery } from '@mui/material';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 
+const drawerWidth = 240;
+
 const Layout = ({ children }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
+  const isSmUp = useMediaQuery(theme.breakpoints.up('sm'));
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -20,7 +24,9 @@ const Layout = ({ children }) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - 240px)` }
+          maxWidth: '100%',
+          width: '100%',
+          marginLeft: isSmUp ? `${drawerWidth}px` : 0
         }}
       >
         <Toolbar />

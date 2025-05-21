@@ -1,4 +1,4 @@
-// src/pages/TasksList.js
+// src/pages/TasksList.jsx
 import React, { useContext, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
@@ -126,7 +126,7 @@ const TasksList = () => {
   };
   
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4">
           Tasks

@@ -1,4 +1,4 @@
-// src/pages/TaskDetail.js
+// src/pages/TaskDetail.jsx
 import React, { useContext, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
@@ -63,7 +63,7 @@ const TaskDetail = () => {
   // When the task is not found
   if (!task) {
     return (
-      <Box sx={{ textAlign: 'center', py: 4 }}>
+      <Box sx={{ textAlign: 'center', py: 4, width: '100%' }}>
         <Typography variant="h5" color="text.secondary" gutterBottom>
           Task not found
         </Typography>
@@ -151,7 +151,7 @@ const TaskDetail = () => {
   };
   
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
         <Button 
           startIcon={<ArrowBackIcon />}

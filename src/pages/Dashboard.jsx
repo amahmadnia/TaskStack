@@ -1,4 +1,4 @@
-// src/pages/Dashboard.js
+// src/pages/Dashboard.jsx
 import React, { useContext } from 'react';
 import { Box, Typography, Paper, Grid, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -13,7 +13,7 @@ const Dashboard = () => {
   const stats = getTaskStatistics();
   
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4">
           Dashboard

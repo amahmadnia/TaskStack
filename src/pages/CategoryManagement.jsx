@@ -1,4 +1,4 @@
-// src/pages/CategoryManagement.js
+// src/pages/CategoryManagement.jsx
 import React, { useContext, useState } from 'react';
 import {
   Box,
@@ -17,14 +17,12 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  Badge,
   Tooltip,
 } from '@mui/material';
 import {
   Add as AddIcon,
   Edit as EditIcon,
   Delete as DeleteIcon,
-  Label as LabelIcon,
 } from '@mui/icons-material';
 import { TaskContext } from '../context/TaskContext';
 import CategoryForm from '../components/ui/CategoryForm';
@@ -60,7 +58,7 @@ const CategoryManagement = () => {
   };
   
   return (
-    <Box>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4">
           Categories
