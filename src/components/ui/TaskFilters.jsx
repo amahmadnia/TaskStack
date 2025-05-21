@@ -11,6 +11,7 @@ import {
   Chip,
   Typography,
   Divider,
+  useTheme,
 } from "@mui/material"
 import FilterListIcon from "@mui/icons-material/FilterList"
 import SortIcon from "@mui/icons-material/Sort"
@@ -29,6 +30,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
   const [filters, setFilters] = useState(initialFilters)
   const [sortBy, setSortBy] = useState("dueDate")
   const [activeFiltersCount, setActiveFiltersCount] = useState(0)
+  const theme = useTheme();
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target
@@ -59,25 +61,33 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
   }
 
   return (
-    <Paper sx={{ p: 2, mb: 3 }}>
+    <Paper sx={{ p: 3, mb: 3, borderRadius: 3 }}>
       <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-        <FilterListIcon sx={{ mr: 1 }} />
-        <Typography variant="h6">Filters</Typography>
+        <FilterListIcon sx={{ mr: 1, color: theme.palette.primary.main }} />
+        <Typography variant="h6" fontWeight="600">
+          Filters
+        </Typography>
 
         {activeFiltersCount > 0 && (
           <Chip
             label={`${activeFiltersCount} active`}
             size="small"
-            sx={{ ml: 1 }}
+            sx={{ 
+              ml: 1, 
+              backgroundColor: theme.palette.primary.main, 
+              color: '#fff',
+              fontWeight: 500,
+              borderRadius: 1
+            }}
             onDelete={handleClearFilters}
-            deleteIcon={<ClearIcon />}
+            deleteIcon={<ClearIcon sx={{ color: '#fff' }} />}
           />
         )}
 
         <Box sx={{ flexGrow: 1 }} />
 
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <SortIcon sx={{ mr: 1 }} />
+          <SortIcon sx={{ mr: 1, color: theme.palette.primary.main }} />
           <FormControl sx={{ minWidth: 150 }} size="small">
             <InputLabel id="sort-label">Sort By</InputLabel>
             <Select
@@ -86,6 +96,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
               value={sortBy}
               label="Sort By"
               onChange={handleSortChange}
+              sx={{ borderRadius: 2 }}
             >
               <MenuItem value="dueDate">Due Date</MenuItem>
               <MenuItem value="priority">Priority</MenuItem>
@@ -96,7 +107,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
         </Box>
       </Box>
 
-      <Divider sx={{ mb: 2 }} />
+      <Divider sx={{ mb: 2, opacity: 0.5 }} />
 
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
         <FormControl sx={{ minWidth: 150 }} size="small">
@@ -108,6 +119,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             value={filters.status}
             label="Status"
             onChange={handleFilterChange}
+            sx={{ borderRadius: 2 }}
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value="pending">Pending</MenuItem>
@@ -125,6 +137,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             value={filters.priority}
             label="Priority"
             onChange={handleFilterChange}
+            sx={{ borderRadius: 2 }}
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value="low">Low</MenuItem>
@@ -142,11 +155,23 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             value={filters.categoryId}
             label="Category"
             onChange={handleFilterChange}
+            sx={{ borderRadius: 2 }}
           >
             <MenuItem value="">All</MenuItem>
             {categories.map((category) => (
               <MenuItem key={category.id} value={category.id}>
-                {category.name}
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box
+                    sx={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: '50%',
+                      backgroundColor: category.color,
+                      mr: 1
+                    }}
+                  />
+                  {category.name}
+                </Box>
               </MenuItem>
             ))}
           </Select>
@@ -161,6 +186,7 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
             value={filters.dueDate}
             label="Due Date"
             onChange={handleFilterChange}
+            sx={{ borderRadius: 2 }}
           >
             <MenuItem value="">All</MenuItem>
             <MenuItem value="today">Today</MenuItem>
@@ -172,11 +198,16 @@ const TaskFilters = ({ onFilterChange, onSortChange }) => {
         {activeFiltersCount > 0 && (
           <Button
             variant="outlined"
-            color="secondary"
+            color="primary"
             size="small"
             onClick={handleClearFilters}
             startIcon={<ClearIcon />}
-            sx={{ ml: 2 }}
+            sx={{ 
+              ml: 2, 
+              borderRadius: 2, 
+              textTransform: 'none',
+              fontWeight: 500
+            }}
           >
             Clear Filters
           </Button>

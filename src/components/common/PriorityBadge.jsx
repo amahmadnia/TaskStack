@@ -14,7 +14,7 @@ const PriorityBadge = ({ priority }) => {
       icon: <FlagIcon />,
     },
     low: {
-      color: "success",
+      color: "info",
       icon: <FlagIcon />,
     },
   }
@@ -27,6 +27,7 @@ const PriorityBadge = ({ priority }) => {
       label={priority.charAt(0).toUpperCase() + priority.slice(1)}
       color={config.color}
       size="small"
+      sx={{ borderRadius: '6px' }}
     />
   )
 }

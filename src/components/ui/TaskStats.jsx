@@ -7,6 +7,7 @@ import {
   Box,
   Divider,
   LinearProgress,
+  useTheme,
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PendingIcon from '@mui/icons-material/Pending';
@@ -17,12 +18,13 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 const TaskStats = () => {
   const { getTaskStatistics, categories } = useContext(TaskContext);
   const stats = getTaskStatistics();
+  const theme = useTheme();
   
   // Data for pie chart
   const statusData = [
-    { name: 'Completed', value: stats.completed, color: '#4caf50' },
-    { name: 'Pending', value: stats.pending - stats.overdue, color: '#3f51b5' },
-    { name: 'Overdue', value: stats.overdue, color: '#f44336' },
+    { name: 'Completed', value: stats.completed, color: theme.palette.success.main },
+    { name: 'Pending', value: stats.pending - stats.overdue, color: theme.palette.primary.main },
+    { name: 'Overdue', value: stats.overdue, color: theme.palette.error.main },
   ].filter(item => item.value > 0);
   
   // Data for category pie chart
@@ -36,8 +38,8 @@ const TaskStats = () => {
     <Grid container spacing={3} mt={3}>
       {/* Task Count Stats */}
       <Grid item xs={12} md={4}>
-        <Paper sx={{ p: 2, height: '100%' }}>
-          <Typography variant="h6" gutterBottom>
+        <Paper sx={{ p: 3, height: '100%', borderRadius: 3 }}>
+          <Typography variant="h6" gutterBottom fontWeight="600">
             Task Status
           </Typography>
           
@@ -99,8 +101,8 @@ const TaskStats = () => {
       
       {/* Status Pie Chart */}
       <Grid item xs={12} md={4}>
-        <Paper sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <Typography variant="h6" gutterBottom>
+        <Paper sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 3 }}>
+          <Typography variant="h6" gutterBottom fontWeight="600">
             Status Distribution
           </Typography>
           
@@ -138,8 +140,8 @@ const TaskStats = () => {
       
       {/* Category Distribution */}
       <Grid item xs={12} md={4}>
-        <Paper sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <Typography variant="h6" gutterBottom>
+        <Paper sx={{ p: 3, height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 3 }}>
+          <Typography variant="h6" gutterBottom fontWeight="600">
             Category Distribution
           </Typography>
           
