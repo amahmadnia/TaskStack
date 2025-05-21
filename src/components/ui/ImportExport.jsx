@@ -144,7 +144,7 @@ const ImportExport = () => {
       
       <Divider sx={{ my: 3 }} />
       
-      <Box sx={{ mt: 2 }}>
+      {/* <Box sx={{ mt: 2 }}>
         <Typography variant="subtitle1" gutterBottom>
           Import Data
         </Typography>
@@ -164,9 +164,9 @@ const ImportExport = () => {
             onChange={handleImport}
           />
         </Button>
-      </Box>
+      </Box> */}
       
-      <Divider sx={{ my: 3 }} />
+      {/* <Divider sx={{ my: 3 }} /> */}
       
       <Box sx={{ mt: 2 }}>
         <Typography variant="subtitle1" gutterBottom color="error">
