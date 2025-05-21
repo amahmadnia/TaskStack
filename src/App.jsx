@@ -1,24 +1,29 @@
-import React, { useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import React, { useContext } from "react"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom"
+import { ThemeProvider, CssBaseline } from "@mui/material"
+import { createTheme } from "@mui/material/styles"
 
 // Pages
-import Dashboard from './pages/Dashboard';
-import TasksList from './pages/TasksList';
-import TaskDetail from './pages/TaskDetail';
-import CategoryManagement from './pages/CategoryManagement';
-import Settings from './pages/Settings';
+import Dashboard from "./pages/Dashboard"
+import TasksList from "./pages/TasksList"
+import TaskDetail from "./pages/TaskDetail"
+import CategoryManagement from "./pages/CategoryManagement"
+import Settings from "./pages/Settings"
 
 // Context Providers
-import { ThemeContext, ThemeContextProvider } from './context/ThemeContext';
-import { TaskContextProvider } from './context/TaskContext';
+import { ThemeContext, ThemeContextProvider } from "./context/ThemeContext"
+import { TaskContextProvider } from "./context/TaskContext"
 
 // Layout
-import Layout from './components/layout/Layout';
+import Layout from "./components/layout/Layout"
 
 // Components
-import QuickAddTask from './components/ui/QuickAddTask';
+import QuickAddTask from "./components/ui/QuickAddTask"
 
 function App() {
   return (
@@ -27,31 +32,32 @@ function App() {
         <AppContent />
       </TaskContextProvider>
     </ThemeContextProvider>
-  );
+  )
 }
 
 function AppContent() {
   // Get the theme from ThemeContext
-  const { theme } = useContext(ThemeContext);
-  
+  const { theme } = useContext(ThemeContext)
+
   // Create MUI theme based on our theme context
   const muiTheme = createTheme({
     palette: {
-      mode: theme === 'dark' ? 'dark' : 'light',
+      mode: theme === "dark" ? "dark" : "light",
       primary: {
-        main: '#3f51b5',
+        main: "#3f51b5",
       },
       secondary: {
-        main: '#f50057',
+        main: "#f50057",
       },
     },
-  });
+  })
 
   return (
     <ThemeProvider theme={muiTheme}>
       <CssBaseline />
       <Router>
         <Layout>
+          ssssss
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -65,7 +71,7 @@ function AppContent() {
         </Layout>
       </Router>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App
